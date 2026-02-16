@@ -1,12 +1,11 @@
 # import packages
-import chainlit as cl
-from langchain.prompts import ChatPromptTemplate
-from langchain_groq import ChatGroq
-from langchain.schema import StrOutputParser
-from langchain.schema.runnable import Runnable
-from langchain.schema.runnable.config import RunnableConfig
+import chainlit as cl #type:ignore
+from langchain_core.prompts import ChatPromptTemplate #type:ignore
+from langchain_groq import ChatGroq #type:ignore
+from langchain_core.output_parsers import StrOutputParser #type:ignore
+from langchain_core.runnables import Runnable, RunnableConfig #type:ignore
 from typing import cast, List, Tuple
-from dotenv import load_dotenv
+from dotenv import load_dotenv #type:ignore
 import os
 
 load_dotenv()
@@ -19,7 +18,8 @@ async def on_chat_start():
         ('human', '{question}')
     ])
 
-    llm = ChatGroq(model='gemma2-9b-it')
+    llm = ChatGroq(model="qwen/qwen3-32b", reasoning_format="parsed")
+
     chain = prompt | llm | StrOutputParser()
 
     # add chain and chat history to the current session

@@ -1,6 +1,6 @@
 # Code-y AI
 
-Get started with `chainlit` using the `ChatGroq` opensource LLM. 
+Get started with `chainlit` using the `ChatGroq` opensource LLM.
 
 1. Clone the repo.
 
@@ -8,21 +8,16 @@ Get started with `chainlit` using the `ChatGroq` opensource LLM.
 git clone https://github.com/stevealila/Chainlit-ChatGroq-Chat-App.git
 ```
 
-2. Grab `ChatGroq` API KEY and store it in `.env` file. 
+2. Grab your [Groq API key](https://console.groq.com/keys) and store it in a `.env` file (see `.env.example`).
 
-3. Create a virtual environment, activate it then install the packages used in this tutorial.
-
-```
-pip install -r requirements.txt
-```
-
-4. Run 
+3. Install dependencies and activate the virtual environment.
 
 ```
-chainlit init
+uv sync
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
 ```
 
-5. followed by 
+4. Run
 
 ```
 chainlit run main.py
